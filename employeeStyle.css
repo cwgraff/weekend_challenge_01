@@ -1,0 +1,12 @@
+ul {
+	list-style: none;
+	font-size: 14 px;
+	line-height: 1.5;
+}
+
+#resultfield {
+	list-style: none;
+	font-size: 14 px;
+	line-height: 1.5;
+	display: inline;
+}

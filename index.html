@@ -1,0 +1,53 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Employee Entry Form</title>
+    <meta name="description" content="Webpage">
+    <link rel="stylesheet" href="employeeStyle.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="employeeApp.js"></script>
+  </head>
+  
+  <body>
+    <form id='employeeinfo'>
+      <ul>
+        <li>
+          <label for='firstname'>First Name:</label>
+          <input type='text' id='firstname' name='firstname'/>
+        </li>
+        <li>
+          <label for='lastname'>Last Name:</label>
+          <input type='text' id='lastname' name='lastname'/>
+        </li>
+        <li>  
+          <label for='employeenumber'>Employee Number:</label>
+          <input type='text' id='employeenumber' name='employeenumber'/>
+        </li>
+        <li> 
+          <label for='jobtitle'>Job Title:</label>
+          <input type='text' id='jobtitle' name='jobtitle'/>
+        </li>
+        <li>
+          <label for='salary'>Yearly Salary:</label>
+          <input type='text' id='salary' name='salary'/>
+        </li> 
+        <li>
+          <input type='submit' value='Enter Employee'/>
+        </li>
+      </ul>
+    </form>
+    <p>Total Monthly Salary Expenditure:</p>
+    <div id='totaltracker'>
+
+      <!-- Total monthly salaries -->
+
+    </div>
+    <div id='resultfield'>
+      
+      <!-- hopefully JS is writing to here -->
+    
+    </div>
+  </body>
+
+
+</html>
