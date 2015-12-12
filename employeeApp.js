@@ -12,8 +12,10 @@ $(document).ready(function(){
 
     $.each($("#employeeinfo").serializeArray(), function(i, field){
       values[field.name] = field.value;
-      //Add monthly salary to array
+      //Add monthly salary to object
       values['monthly'] = Math.round((parseInt(values.salary)) / 12) ;
+      //Add index number to object
+      values['indexnumber'] = employeeIndex; 
      })
     
     $("#employeeinfo").find("input[type=text]").val("");
@@ -35,14 +37,20 @@ $(document).ready(function(){
 
 // Write to the DOM
 function appendDom(object){
-  $("#resultfield").append("<ul></ul>");
-  var $domField = $("#resultfield").children().last();
+   $("#resultfield").append(
+  "<ul><li>" + object.firstname + "</li>" +
+  "<li>" + object.lastname + "</li>" +
+  "<li>" + object.employeenumber + "</li>" +
+  "<li>" + object.jobtitle + "</li>" +
+  "<li>" + object.salary + "</li></ul>");
+  // $("#resultfield").append("<ul></ul>");
+  // var $domField = $("#resultfield").children().last();
 
-  $domField.append("<li>" + object.firstname + "</li>");
-  $domField.append("<li>" + object.lastname + "</li>");
-  $domField.append("<li>" + object.employeenumber + "</li>");
-  $domField.append("<li>" + object.jobtitle + "</li>");
-  $domField.append("<li>" + object.salary + "</li>");
+  // $domField.append("<li>" + object.firstname + "</li>");
+  // $domField.append("<li>" + object.lastname + "</li>");
+  // $domField.append("<li>" + object.employeenumber + "</li>");
+  // $domField.append("<li>" + object.jobtitle + "</li>");
+  // $domField.append("<li>" + object.salary + "</li>");
 }
 
 // Update the total on the DOM
