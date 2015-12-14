@@ -19,4 +19,17 @@ ul {
 
 #removeemployee {
 	float: left;
+	margin-right: 400px;
+}
+
+#totaltracker {
+	display: inline;
+	margin-left: 4;
+	font-size: 18px;
+	color: #cc3300;
+}
+
+#expenditure {
+	display: inline;
+	margin-left: 39px;
 }

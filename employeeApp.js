@@ -5,7 +5,7 @@ var employeeIndex = 0;
 var totalMonthly = 0;
 
 $(document).ready(function(){
-  //Add employee button submit
+  // Employee button submit
   $("#employeeinfo").on('submit',function(event){
     event.preventDefault();
 
@@ -26,27 +26,21 @@ $(document).ready(function(){
     appendDom(values);
     // Update the monthly total on DOM
     updateTotal(totalMonthly);
+    // Assign objects to array for storage
     array.push(values);
     // Iterate unique employee counter for each entry
     employeeIndex ++;
-    console.log(array);
-
     //console.log(array);
-    //console.log(totalMonthly);
+
   });
   $(document).ready(function(){
     //Remove employee button submit
    $("#removeemployee").on('submit', function(event){
     event.preventDefault();
-    //left off here
     var myNum ='';
     var removeNum = $('#removeid').val();
 
-    //console.log(removeNum);
-    //console.log(array[0]['employeenumber']);
-  //})
-
-   $("#removeemployee").find("input[type=text]").val("");
+    $("#removeemployee").find("input[type=text]").val("");
       //find the Object of the employee to remove
       for(var i = 0; i < array.length; i++){
       if(array[i]['employeenumber'] == removeNum) {
@@ -56,19 +50,17 @@ $(document).ready(function(){
        //subtract employee monthly salry from total
        totalMonthly -= (array[myNum]['monthly']);
        updateTotal(totalMonthly);
-
+       //remove employee from DOM
        removeDom(myNum);
      }
-       //remove employee from DOM and monthly total
+      // Alert user of employee number not found - *CODE NOT WORKING*
       //   if (myNum !== ""){
       //   console.log("function will run here");
       //  }
       //   else {
       //   alert("Employee not found");
       // }
-    };
-      //array[]['indexnumber'] = employeeIndex; 
-     //)
+    }; 
     })
   });
 
@@ -77,7 +69,7 @@ $(document).ready(function(){
 // Write to the DOM
 function appendDom(object){
    $("#resultfield").append(
-  "<ul class='" + object.employeeIndex + "'><li>" + object.firstname + "</li>" +
+  "<ul class='" + object.indexnumber + "'><li>" + object.firstname + "</li>" +
   "<li>" + object.lastname + "</li>" +
   "<li>" + object.employeenumber + "</li>" +
   "<li>" + object.jobtitle + "</li>" +
@@ -87,12 +79,12 @@ function appendDom(object){
 // Update the total on the DOM
   function updateTotal(monSal){
   $("#totaltracker").empty();  
-  $("#totaltracker").append("<p>" + monSal + "</p>");
+  $("#totaltracker").append(monSal);
 
   }
-  function removeDom(idNum){
-  $('.idNum').remove();
-  console.log(idNum);  
+// Remove employee from DOM
+  function removeDom(foo){
+  $("." + foo).remove();
   }
 
 
