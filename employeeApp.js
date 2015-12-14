@@ -47,13 +47,25 @@ $(document).ready(function(){
   //})
 
    $("#removeemployee").find("input[type=text]").val("");
+      //find the Object of the employee to remove
       for(var i = 0; i < array.length; i++){
       if(array[i]['employeenumber'] == removeNum) {
         myNum = i;
         console.log(myNum);
-        return;
-       }
-      else{console.log("stuff")};
+       //}
+       //subtract employee monthly salry from total
+       totalMonthly -= (array[myNum]['monthly']);
+       updateTotal(totalMonthly);
+
+       removeDom(myNum);
+     }
+       //remove employee from DOM and monthly total
+      //   if (myNum !== ""){
+      //   console.log("function will run here");
+      //  }
+      //   else {
+      //   alert("Employee not found");
+      // }
     };
       //array[]['indexnumber'] = employeeIndex; 
      //)
@@ -78,3 +90,11 @@ function appendDom(object){
   $("#totaltracker").append("<p>" + monSal + "</p>");
 
   }
+  function removeDom(idNum){
+  $('.idNum').remove();
+  console.log(idNum);  
+  }
+
+
+
+
