@@ -5,6 +5,7 @@ var employeeIndex = 0;
 var totalMonthly = 0;
 
 $(document).ready(function(){
+  //Add employee button submit
   $("#employeeinfo").on('submit',function(event){
     event.preventDefault();
 
@@ -16,7 +17,7 @@ $(document).ready(function(){
       values['monthly'] = Math.round((parseInt(values.salary)) / 12) ;
       //Add index number to object
       values['indexnumber'] = employeeIndex; 
-     })
+    })
     
     $("#employeeinfo").find("input[type=text]").val("");
     // Update the total monthly salary calculation
@@ -28,9 +29,35 @@ $(document).ready(function(){
     array.push(values);
     // Iterate unique employee counter for each entry
     employeeIndex ++;
-
     console.log(array);
-    console.log(totalMonthly);
+
+    //console.log(array);
+    //console.log(totalMonthly);
+  });
+  $(document).ready(function(){
+    //Remove employee button submit
+   $("#removeemployee").on('submit', function(event){
+    event.preventDefault();
+    //left off here
+    var myNum ='';
+    var removeNum = $('#removeid').val();
+
+    //console.log(removeNum);
+    //console.log(array[0]['employeenumber']);
+  //})
+
+   $("#removeemployee").find("input[type=text]").val("");
+      for(var i = 0; i < array.length; i++){
+      if(array[i]['employeenumber'] == removeNum) {
+        myNum = i;
+        console.log(myNum);
+        return;
+       }
+      else{console.log("stuff")};
+    };
+      //array[]['indexnumber'] = employeeIndex; 
+     //)
+    })
   });
 
 });
@@ -38,19 +65,11 @@ $(document).ready(function(){
 // Write to the DOM
 function appendDom(object){
    $("#resultfield").append(
-  "<ul><li>" + object.firstname + "</li>" +
+  "<ul class='" + object.employeeIndex + "'><li>" + object.firstname + "</li>" +
   "<li>" + object.lastname + "</li>" +
   "<li>" + object.employeenumber + "</li>" +
   "<li>" + object.jobtitle + "</li>" +
   "<li>" + object.salary + "</li></ul>");
-  // $("#resultfield").append("<ul></ul>");
-  // var $domField = $("#resultfield").children().last();
-
-  // $domField.append("<li>" + object.firstname + "</li>");
-  // $domField.append("<li>" + object.lastname + "</li>");
-  // $domField.append("<li>" + object.employeenumber + "</li>");
-  // $domField.append("<li>" + object.jobtitle + "</li>");
-  // $domField.append("<li>" + object.salary + "</li>");
 }
 
 // Update the total on the DOM

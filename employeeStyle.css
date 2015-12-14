@@ -16,3 +16,7 @@ ul {
     margin: 1px 1px 8px 1px;
     background-color: #eee;
 }
+
+#removeemployee {
+	float: left;
+}
